@@ -30,7 +30,7 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {}
     },
     computed: {
@@ -38,12 +38,10 @@
         return this.$store.getters.getArticles
       }
     },
-    mounted() {
-      console.log('I am article ')
+    mounted () {
     },
-    attached() { },
     methods: {
-      getArticles() {
+      getArticles () {
         this.$store.dispatch('fetchArticleList')
       }
     },

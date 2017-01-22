@@ -3,7 +3,7 @@
 * @Last modified time: 2016-09-30T13:52:18+08:00
 */
 
-let LyApp = {}
+const LyApp = {}
 
 /**
  * 判断是否是IOS设备
@@ -12,7 +12,7 @@ let LyApp = {}
  */
 
 const isIos = () => {
-  let ua = window.navigator.userAgent.toLowerCase()
+  const ua = window.navigator.userAgent.toLowerCase()
   if (/ipad|iphone|ipod/.test(ua)) {
     return true
   } else {

@@ -14,6 +14,42 @@
 
 ##升级
 
+### 2017/01/22
+
+- 解决 fetch 请求跨域问题(webpack 测试环境下), proxy:
+
+```js
+    devServer: {
+        contentBase: path.resolve(__dirname, '../src'),
+        inline: true, // 实时刷新
+        hot: true,
+        port: 8080,
+        proxy: {
+            '/api': {
+                target: 'http://m.maizuo.com/v4',
+                changeOrigin: true,
+                secure: false,
+            }
+        },
+        historyApiFallback: true,
+        compress: true,
+        stats: {
+            assets: true,
+            children: false,
+            chunks: false,
+            hash: false,
+            modules: false,
+            publicPath: false,
+            timings: true,
+            version: true,
+            warnings: true,
+            colors: {
+                green: '\u001b[32m'
+            }
+        }
+    }
+```
+
 ### 2016/12/18
 
 - `eslint-plugin-html`: required to lint `*.vue` files

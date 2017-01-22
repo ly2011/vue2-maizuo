@@ -63,6 +63,13 @@ const developmentConf = merge(baseConfig, {
         inline: true, // 实时刷新
         hot: true,
         port: 8080,
+        proxy: {
+            '/api': {
+                target: 'http://m.maizuo.com/v4',
+                changeOrigin: true,
+                secure: false,
+            }
+        },
         historyApiFallback: true,
         compress: true,
         stats: {
