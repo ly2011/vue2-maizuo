@@ -61,6 +61,9 @@ export default {
     this.$store.commit('COM_CONF', {
       title: '卖座电影'
     })
+
+    console.log('banner: ', this.banner)
+
     if (this.banner.length === 0) {
       this.$store.dispatch('getBannerList')
     }
