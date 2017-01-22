@@ -1,8 +1,8 @@
 {
-  "name": "vue2-webpack2-video",
+  "name": "vue2-maizuo",
   "version": "1.0.2",
-  "description": "vue2-webpack2-video",
-  "main": "src/index.js",
+  "description": "vue2-maizuo",
+  "main": "dist/index.js",
   "keywords": [
     "vue2",
     "webpack2"
@@ -11,7 +11,7 @@
   "private": true,
   "engines": {
     "node": ">=5.0 <8",
-    "npm": ">=3.3 <4"
+    "npm": ">=3.3 <5"
   },
   "license": "ISC",
   "scripts": {
@@ -91,10 +91,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ly2011/vue2-webpack2.x.git"
+    "url": "git+https://github.com/ly2011/vue2-maizuo.git"
   },
   "bugs": {
-    "url": "https://github.com/ly2011/vue2-webpack2.x/issues"
+    "url": "https://github.com/ly2011/vue2-maizuo/issues"
   },
-  "homepage": "https://github.com/ly2011/vue2-webpack2.x#readme"
+  "homepage": "https://github.com/ly2011/vue2-maizuo#readme"
 }

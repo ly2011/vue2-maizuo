@@ -1,6 +1,6 @@
-# vue2-webpack2-video
+# vue2-maizuo
 
-> vue2-webpack2-video
+> vue2-maizuo
 
 > 这是一套基于 `vue2` 的电影频道
 
