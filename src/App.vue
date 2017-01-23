@@ -6,7 +6,7 @@
         <router-view class="child-view" />
       </transition>
     </div>
-    <!--<c-loading v-show="loading" />-->
+    <c-loading v-show="loading" />
   </div>
 </template>
 
@@ -76,8 +76,8 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-/*@import './assets/scss/base.scss';*/
+<style lang="sass">
+@import './assets/scss/base.scss';
 
 .display-transition {
   transition: all 0 .5s;

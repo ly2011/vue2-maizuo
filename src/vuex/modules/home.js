@@ -15,7 +15,6 @@ const actions = {
   getBannerList ({ commit }) {
     commit(types.COM_LOADING_STATUS, true)
     api.getBannerList(res => {
-      console.log('getBannerList: ', res)
       commit(types.HOME_GET_BANNER_LIST, res.data)
       commit(types.COM_LOADING_STATUS, false)
     })
@@ -47,7 +46,6 @@ const getters = {
 const mutations = {
   [types.HOME_GET_BANNER_LIST] (state, res) {
     state.banner = res.billboards
-    console.log('banner: ', state.banner)
   },
   [types.HOME_GET_NOWPLAYING_LIST] (state, res) {
     state.nowplay = res.films

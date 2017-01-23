@@ -5,7 +5,7 @@
       <swiper class="banner-swiper">
         <swiper-slide class="slide" v-for="item in banner">
           <a :href="item.url" target="_blank">
-            <img :src="item.imageUrl" alt="">
+            <img class="film-logo" :src="item.imageUrl" alt="">
           </a>
         </swiper-slide>
       </swiper>
@@ -14,11 +14,11 @@
     <div class="now-playing">
       <div class="item" v-for="item in nowplay">
         <router-link :to="{name: 'article', params: { id: item.id }}">
-          <img :src="item.cover.origin" alt="">
+          <img class="film-logo" :src="item.cover.origin" alt="">
           <div class="desc">
             <div class="info">
-              <h4>{{item.name}}</h4>
-              <p>{{item.cinemaCount}}家影院上映 {{item.watchCount}}人购票</p>
+              <div class="film-name">{{item.name}}</div>
+              <div class="film-info">{{item.cinemaCount}}家影院上映 {{item.watchCount}}人购票</div>
             </div>
             <div class="count">{{item.grade}}</div>
           </div>
@@ -32,12 +32,14 @@
     <div class="coming-soon">
       <div class="item" v-for="item in coming">
         <router-link :to="{name: 'article', params: { id: item.id }}">
-          <img :src="item.cover.origin" alt="">
-          <div class="info">
-              <h4>{{item.name}}</h4>
-              <!--<p>{{item.cinemaCount}}家影院上映 {{item.watchCount}}人购票</p>-->
-            </div>
-            <!--<div class="count">{{item.grade}}</div>-->
+          <img class="film-logo" :src="item.cover.origin" alt="">
+          <div class="desc">
+            <div class="info">
+                <div class="film-name">{{item.name}}</div>
+                <!--<p>{{item.cinemaCount}}家影院上映 {{item.watchCount}}人购票</p>-->
+              </div>
+              <!--<div class="count">{{item.grade}}</div>-->
+          </div>
         </router-link>
       </div>
     </div>
@@ -80,8 +82,7 @@ export default {
     coming: 'getComingSoon'
   }),
   methods: {
-    updateMessage () {
-    }
+
   },
   beforeRouteEnter (to, from, next) {
     // 在渲染该组件的对应路由被 confirm 前调用
@@ -104,7 +105,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "../assets/scss/base.scss";
 .fade-enter-active {
   transition: all .3s ease;
 }
@@ -115,4 +115,41 @@ export default {
   transform: translateX(10px);
   opacity: 0;
 }
+.film-logo {
+  object-fit: cover;
+  width: 100%;
+}
+.desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .info {
+    padding-left: 28px;
+    height: 50px;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .film-name {
+      color: #333;
+      font-size: 12px;
+      line-height: 15px;
+      user-select: text;
+    }
+    .film-info {
+      font-size: 8px;
+      color: #9a9a9a;
+      line-height: 15px;
+    }
+  }
+  .count {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    margin-right: 15px;
+    color: #f78360;
+  }
+}
+
 </style>
