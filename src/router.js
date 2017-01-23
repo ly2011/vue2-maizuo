@@ -28,8 +28,6 @@ import Router from 'vue-router'
 
 const Home = () => System.import('./views/Home')
 const Article = () => System.import('./views/Article')
-const Topic = () => System.import('./views/Topic')
-const Video = () => System.import('./views/Video')
 
 // scrollBehavior:
 // - only available in html5 history mode
@@ -88,14 +86,6 @@ const router = new Router({
     meta: {
       scrollToTop: true
     }
-  }, {
-    path: '/topic',
-    name: 'topic',
-    component: Topic
-  }, {
-    path: '/video',
-    name: 'video',
-    component: Video
   }
   ]
 })
