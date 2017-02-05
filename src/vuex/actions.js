@@ -34,7 +34,7 @@ import 'whatwg-fetch'
  * @return {Promise}       Promise
  */
 
-const _get = ({url, query}) => {
+const _get = ({ url, query }) => {
   let _url = ''
   if (query) {
     _url = `http://localhost:8081${url}?${query}`
@@ -93,7 +93,7 @@ const _get = ({url, query}) => {
 export const fetchArticleList = ({ commit }, page = 5) => {
   const url = '/articles'
   const query = `page=${page}`
-  return _get({url, query})
+  return _get({ url, query })
   .then((json) => {
     if (json.success) {
       console.log('json-success: ', json.data)
@@ -115,10 +115,10 @@ export const fetchArticleList = ({ commit }, page = 5) => {
  * @return {[type]}                 [description]
  */
 
-export const fetchTopoicList = ({commit}, page = 5) => {
+export const fetchTopoicList = ({ commit }, page = 5) => {
   const url = '/topics'
   const query = `page=${page}`
-  return _get({url, query})
+  return _get({ url, query })
   .then((json) => {
     if (json.success) {
       console.log('json-success: ', json.data)
@@ -145,7 +145,7 @@ export const fetchTopoicList = ({commit}, page = 5) => {
  * @return {[type]}              [description]
  */
 
-export const displayVideo = ({commit}) => {
+export const displayVideo = ({ commit }) => {
   fetch('http://localhost:8081/videos', {
     method: 'GET',
     mode: 'cors',

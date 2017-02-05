@@ -70,7 +70,7 @@ module.exports = {
                 enforce: 'pre'
             }, {
                 test: /\.vue$/,
-                // loader: 'vue-loader'
+                // loader: 'vue-loader',
                 use: [
                   'vue-loader'
                 ],
@@ -85,7 +85,8 @@ module.exports = {
                 //     fallbackLoader: "style-loader"
                 // })
                 loader: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
+                    // fallbackLoader: 'style-loader',
+                    fallback: 'style-loader',
                     loader: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss-loader'
                 })
             }, {
@@ -103,7 +104,8 @@ module.exports = {
                 //     fallbackLoader: "style-loader"
                 // })
                 loader: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
+                    // fallbackLoader: 'style-loader',
+                    fallback: 'style-loader',
                     loader: [
                     {
                         loader: 'css-loader',
@@ -133,7 +135,8 @@ module.exports = {
                 //     fallbackLoader: "style-loader"
                 // })
                 loader: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
+                    // fallbackLoader: 'style-loader',
+                    fallback: 'style-loader',
                     loader: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss-loader!less-loader'
                 })
             },
@@ -220,19 +223,22 @@ module.exports = {
                         loader: [
                             'css-loader', 'postcss-loader'
                         ],
-                        fallbackLoader: "vue-style-loader"
+                        // fallbackLoader: "vue-style-loader",
+                        fallback: 'vue-style-loader',
                     }),
                     scss: ExtractTextPlugin.extract({
                         loader: [
                             'css-loader', 'postcss-loader', 'sass-loader'
                         ],
-                        fallbackLoader: "vue-style-loader"
+                        // fallbackLoader: "vue-style-loader",
+                        fallback: 'vue-style-loader',
                     }),
                     sass: ExtractTextPlugin.extract({
                         loader: [
                             'css-loader', 'postcss-loader', 'sass-loader'
                         ],
-                        fallbackLoader: "vue-style-loader"
+                        // fallbackLoader: "vue-style-loader",
+                        fallback: 'vue-style-loader',
                     })
                 }
 

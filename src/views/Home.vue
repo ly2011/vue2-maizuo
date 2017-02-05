@@ -13,7 +13,7 @@
     <!--now-playing-->
     <div class="now-playing">
       <div class="item" v-for="item in nowplay">
-        <router-link :to="{name: 'article', params: { id: item.id }}">
+        <router-link :to="{name: 'detail', params: { id: item.id }}">
           <img class="film-logo" :src="item.cover.origin" alt="">
           <div class="desc">
             <div class="info">
@@ -31,7 +31,7 @@
     </div>
     <div class="coming-soon">
       <div class="item" v-for="item in coming">
-        <router-link :to="{name: 'article', params: { id: item.id }}">
+        <router-link :to="{name: 'detail', params: { id: item.id }}">
           <img class="film-logo" :src="item.cover.origin" alt="">
           <div class="desc">
             <div class="info">
@@ -60,11 +60,14 @@ export default {
     }
   },
   created () {
-    this.$store.commit('COM_CONF', {
+    // this.$store.commit('COM_CONF', {
+    //   title: '卖座电影'
+    // })
+    this.$store.dispatch('comConf', {
       title: '卖座电影'
     })
 
-    console.log('banner: ', this.banner)
+    // console.log('banner: ', this.banner)
 
     if (this.banner.length === 0) {
       this.$store.dispatch('getBannerList')

@@ -19,6 +19,7 @@ import Vuex from 'vuex'
  */
 import com from './modules/common'
 import home from './modules/home'
+import detail from './modules/detail'
 
 const debug = process.env.NODE_ENV !== 'production'
 Vue.use(Vuex)
@@ -28,7 +29,8 @@ export default new Vuex.Store({
   modules: {
     /* 这个名字与 getters.js 获取[state]的值有关 */
     com,
-    home
+    home,
+    detail
   },
   strict: debug,
 /*  strict: debug, */

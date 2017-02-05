@@ -33,10 +33,11 @@ export default {
     }
   },
   computed: mapGetters({
+    comConf: 'comConf',
     loading: 'loading'
   }),
   created () {
-    console.log(`this.show ${this.show}`)
+    // console.log(`this.show ${this.show}`)
   },
   beforeCreate () {
   },
