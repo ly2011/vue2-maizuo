@@ -33,7 +33,7 @@ module.exports = {
             '.css',
             '.jpg',
             '.png',
-            'gif',
+            '.gif',
             '.svg'
         ],
         alias: {
@@ -51,28 +51,19 @@ module.exports = {
     },
     module: {
         // loaders: [
-        rules: [
-            {
-                test: /\.vue$/,
-                // loader: 'eslint-loader',
-                use: [
-                  'eslint-loader'
-                ],
+        rules: [{
+                test: /\.(vue|js|jsx)$/,
+                loader: 'eslint-loader',
                 exclude: /node_modules/,
-                enforce: 'pre'
-            }, {
-                test: /\.(js|jsx)$/,
-                // loader: 'eslint-loader',
-                use: [
-                  'eslint-loader'
-                ],
-                exclude: /node_modules/,
-                enforce: 'pre'
+                enforce: 'pre',
+                options: {
+                    formatter: require('eslint-friendly-formatter')
+                }
             }, {
                 test: /\.vue$/,
                 // loader: 'vue-loader',
                 use: [
-                  'vue-loader'
+                    'vue-loader'
                 ],
             }, {
                 test: /\.css$/,
@@ -92,7 +83,7 @@ module.exports = {
             }, {
                 test: /\.css$/,
                 include: nodeModulesPath,
-                loader: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader']
             }, {
                 test: /\.(scss|sass)$/,
                 include: srcPath,
@@ -106,20 +97,20 @@ module.exports = {
                 loader: ExtractTextPlugin.extract({
                     // fallbackLoader: 'style-loader',
                     fallback: 'style-loader',
-                    loader: [
-                    {
-                        loader: 'css-loader',
-                        query: {
-                            modules: true,
-                            importLoaders: 1,
-                            localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
-                        }
-                    },
-                    'postcss-loader',
-                    'sass-loader']
+                    loader: [{
+                            loader: 'css-loader',
+                            query: {
+                                modules: true,
+                                importLoaders: 1,
+                                localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
+                            }
+                        },
+                        'postcss-loader',
+                        'sass-loader'
+                    ]
                 })
             },
-             {
+            {
                 test: /\.(scss|sass)$/,
                 include: nodeModulesPath,
                 loader: ['style-loader', 'css-loader', 'sass-loader']
@@ -143,15 +134,15 @@ module.exports = {
             {
                 test: /\.less$/,
                 include: nodeModulesPath,
-                loader: ['style-loader', 'css-loader', 'less-loader']
+                use: ['style-loader', 'css-loader', 'less-loader']
             },
             {
                 test: /\.(js|jsx)$/,
-                loader: 'babel-loader',
+                use: 'babel-loader',
                 exclude: /node_modules/
             }, {
                 test: /\.html$/,
-                loader: 'vue-html-loader',
+                use: 'vue-html-loader',
                 exclude: /node_modules/
             },
             // {
@@ -195,10 +186,10 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             options: {
                 context: path.resolve(__dirname, '../'),
-                postcss: function () {
+                postcss: function() {
                     return [
                         customMedia(),
-                        cssnext({flexbox: true, browsers: ['last 10 versions']}),
+                        cssnext({ flexbox: true, browsers: ['last 10 versions'] }),
                         customProperties(),
                         // pxtorem({rootValue: 100, propWhiteList: []})
                     ]
@@ -211,10 +202,10 @@ module.exports = {
                 loaders: {
                     // postcss: [require('autoprefixer')({flexbox: true, browsers: ['last 3
                     // versions']})],
-                    postcss: function () {
+                    postcss: function() {
                         return [
                             customMedia(),
-                            cssnext({flexbox: true, browsers: ['last 10 versions']}),
+                            cssnext({ flexbox: true, browsers: ['last 10 versions'] }),
                             customProperties(),
                             // pxtorem({rootValue: 100, propWhiteList: []})
                         ]
@@ -244,6 +235,6 @@ module.exports = {
 
             }
         }),
-        new ExtractTextPlugin({filename: 'css/[name].[hash].css', allChunks: true})
+        new ExtractTextPlugin({ filename: 'css/[name].[hash].css', allChunks: true })
     ]
 }
