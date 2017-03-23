@@ -35,68 +35,68 @@ const Detail = () => System.import('./views/Detail')
 // - defaults to no scroll behavior
 // - return false to prevent scroll
 const scrollBehavior = (to, from, savedPosition) => {
-  if (savedPosition) {
-    // savedPosition is only available for popstate navigations.
-    // savedPosition 当且仅当 popstate 导航 (通过浏览器的 前进/后退 按钮触发) 时才可用。
-    return savedPosition
-  } else {
-    const position = {}
-      // new navigation.
-      // scroll to anchor by returning the selector
-    if (to.hash) {
-      position.selector = to.hash
+    if (savedPosition) {
+        // savedPosition is only available for popstate navigations.
+        // savedPosition 当且仅当 popstate 导航 (通过浏览器的 前进/后退 按钮触发) 时才可用。
+        return savedPosition
+    } else {
+        const position = {}
+            // new navigation.
+            // scroll to anchor by returning the selector
+        if (to.hash) {
+            position.selector = to.hash
+        }
+        // check if any matched route config has meta that requires scrolling to top
+        if (to.matched.some(m => m.meta.scrollToTop)) {
+            // cords will be used if no selector is provided,
+            // or if the selector didn't match any element.
+            position.x = 0
+            position.y = 0
+        }
+        // if the returned position is falsy or an empty object,
+        // will retain current scroll position.
+        return position
     }
-    // check if any matched route config has meta that requires scrolling to top
-    if (to.matched.some(m => m.meta.scrollToTop)) {
-      // cords will be used if no selector is provided,
-      // or if the selector didn't match any element.
-      position.x = 0
-      position.y = 0
-    }
-    // if the returned position is falsy or an empty object,
-    // will retain current scroll position.
-    return position
-  }
 }
 
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
-  base: __dirname,
-  scrollBehavior,
-  routes: [{
-    path: '/',
-    name: 'home',
-    component: Home,
-    meta: {
-      scrollToTop: true
-    }
-  }, {
-    path: '/home',
-    // name: 'home',
-    component: Home,
-    meta: {
-      scrollToTop: true
-    }
-  },
-  {
-    path: '/article',
-    name: 'article',
-    component: Article,
-    meta: {
-      scrollToTop: true
-    }
-  },
-  {
-    path: '/detail',
-    name: 'detail',
-    component: Detail,
-    meta: {
-      scrollToTop: true
-    }
-  }
-  ]
+    mode: 'history',
+    base: __dirname,
+    scrollBehavior,
+    routes: [{
+            path: '/',
+            name: 'home',
+            component: Home,
+            meta: {
+                scrollToTop: true
+            }
+        }, {
+            path: '/home',
+            // name: 'home',
+            component: Home,
+            meta: {
+                scrollToTop: true
+            }
+        },
+        {
+            path: '/article',
+            name: 'article',
+            component: Article,
+            meta: {
+                scrollToTop: true
+            }
+        },
+        {
+            path: '/detail',
+            name: 'detail',
+            component: Detail,
+            meta: {
+                scrollToTop: true
+            }
+        }
+    ]
 })
 
 /**
@@ -105,8 +105,8 @@ const router = new Router({
  */
 
 router.beforeEach((to, from, next) => {
-  console.log(`come from ${from.path}`)
-  next()
+    console.log(`come from ${from.path}`)
+    next()
 })
 
 export default router
